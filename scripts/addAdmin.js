@@ -5,8 +5,10 @@ const Web3 = require('web3');
 
 const SportCrypt = require("../lib/SportCrypt");
 
+let provider = 'http://localhost:8545';
+if (process.env.WEB3_PROVIDER) provider = process.env.WEB3_PROVIDER;
 const web3 = new Web3();
-web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+web3.setProvider(new web3.providers.HttpProvider(provider));
 
 let ownerAddr = process.argv[2];
 let contractAddr = process.argv[3];
@@ -21,6 +23,9 @@ if (!contractAddr) throw("must pass in contract addr");
 if (!adminAddr) throw("must pass in admin addr");
 
 let inst = new SportCrypt(web3);
+
+if (process.env.OWNER_PRIVATE_KEY) inst.setPrivateKey(process.env.OWNER_PRIVATE_KEY);
+if (process.env.GAS_PRICE) inst.setGasPrice(process.env.GAS_PRICE);
 
 inst.attach(ownerAddr, contractAddr);
 
