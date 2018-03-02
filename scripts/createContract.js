@@ -19,10 +19,12 @@ if (!ownerAddr) {
 
 let inst = new SportCrypt(web3);
 
-if (process.env.OWNER_PRIVATE_KEY) inst.setPrivateKey(process.env.OWNER_PRIVATE_KEY);
+if (process.env.OWNER_PRIVATE_KEY) inst.attachAddrPrivateKey(process.env.OWNER_PRIVATE_KEY, ownerAddr);
+else inst.attachAddr(ownerAddr);
+
 if (process.env.GAS_PRICE) inst.setGasPrice(process.env.GAS_PRICE);
 
-inst.createAndAttach(ownerAddr, (err) => {
+inst.attachContractCreate((err) => {
     if (err) throw(err);
 
     let addr = inst.contractAddr;

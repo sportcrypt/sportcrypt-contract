@@ -56,7 +56,8 @@ let gasTrack = {
 function setupOwnerInstance(ownerAddr, cb) {
     let ownerInstance = new SportCrypt(web3);
 
-    ownerInstance.createAndAttach(ownerAddr, (err) => {
+    ownerInstance.attachAddr(ownerAddr);
+    ownerInstance.attachContractCreate((err) => {
         if (err) throw(err);
 
         let adminKey = scUtil.generateKeyPair();
@@ -93,7 +94,8 @@ function doTest(spec, testDone) {
                 sc: new SportCrypt(web3),
             };
 
-            users[name].sc.attach(users[name].addr, ownerInstance.contractAddr);
+            users[name].sc.attachAddr(users[name].addr);
+            users[name].sc.attachContractExisting(ownerInstance.contractAddr);
 
             nextAddrIndex++;
             return users[name];
