@@ -1,0 +1,14 @@
+Optimization
+
+* uint8 v value (really 1 bit) in trade method takes up 32 bytes, maybe overload amount?
+* no hard-coded batch sizes in checkMatchBatch/checkOrderBatch
+
+
+Interface
+
+? method to deposit and trade in same transaction
+
+
+Model
+
+? more granular prices (1-1000 maybe)
