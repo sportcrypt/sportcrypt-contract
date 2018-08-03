@@ -12,3 +12,9 @@ Interface
 Model
 
 ? more granular prices (1-1000 maybe)
+
+Misc
+
+* use recent improvements in solidity language
+  * emit
+  * textual error messages in require
