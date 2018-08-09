@@ -11,10 +11,13 @@ Interface
 
 Model
 
+* prevent very small trades (ie 1 wei) since they can happen when balance got maxed out
 ? more granular prices (1-1000 maybe)
+
 
 Misc
 
 * use recent improvements in solidity language
-  * emit
+  * emit for events
   * textual error messages in require
+  * fix up deprecation warnings etc
