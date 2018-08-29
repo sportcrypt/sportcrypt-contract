@@ -2,13 +2,14 @@ Optimization
 
 * uint8 v value (really 1 bit) in trade method takes up 32 bytes, maybe overload amount?
 * no hard-coded batch sizes in checkMatchBatch/checkOrderBatch
-* in CheckOrderBatch, expose if orders are completely filled so they can be removed by web app
+* in checkOrderBatch, expose if orders are completely filled so they can be removed by web app
 
 
 Interface
 
 ? method to deposit and trade in same transaction
 ? method to claim and withdraw in same transaction
+? expiry timestamp on trades as well as orders (maybe overload amount?)
 
 
 Model
