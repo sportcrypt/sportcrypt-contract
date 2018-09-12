@@ -10,6 +10,7 @@ Interface
 ? method to deposit and trade in same transaction
 ? method to claim and withdraw in same transaction
 ? expiry timestamp on trades as well as orders (maybe overload amount?)
+* return success from read-only methods somehow to detect issues like infura's timeouts where "0x0000..." is returned
 
 
 Model
