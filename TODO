@@ -3,14 +3,20 @@ Optimization
 * uint8 v value (really 1 bit) in trade method takes up 32 bytes, maybe overload amount?
 * no hard-coded batch sizes in checkMatchBatch/checkOrderBatch
 * in checkOrderBatch, expose if orders are completely filled so they can be removed by web app
+* idea from 0x protocol: "When filling an order, the signature is only validated the first time the order is filled. Because of this, signatures should not be resubmitted after an order has already been partially filled. For a standard 65 byte ECDSA signature, this can save well over 4000 gas."
 
 
 Interface
 
+* return success from read-only methods somehow to detect issues like infura's timeouts where "0x0000..." is returned
 ? method to deposit and trade in same transaction
 ? method to claim and withdraw in same transaction
 ? expiry timestamp on trades as well as orders (maybe overload amount?)
-* return success from read-only methods somehow to detect issues like infura's timeouts where "0x0000..." is returned
+? partially cancel order (ie reduce amount -- possibly not needed since you can just publish new order)
+? batch cancel orders (maybe just an external contract)
+? fill or kill orders (maybe just an external contract)
+? something like 0x protocol's cancelOrdersUpTo
+? signature abstraction like 0x (especially wallet and validator types)
 
 
 Model
