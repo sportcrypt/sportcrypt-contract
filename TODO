@@ -9,8 +9,10 @@ Optimization
 Interface
 
 * return success from read-only methods somehow to detect issues like infura's timeouts where "0x0000..." is returned
+* allow third parties to submit claims for other accounts
 ? method to deposit and trade in same transaction
 ? method to claim and withdraw in same transaction
+? batch claim method -- any gas savings here?
 ? expiry timestamp on trades as well as orders (maybe overload amount?)
 ? partially cancel order (ie reduce amount -- possibly not needed since you can just publish new order)
 ? batch cancel orders (maybe just an external contract)
